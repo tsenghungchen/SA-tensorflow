@@ -38,7 +38,7 @@ We pack the data into the format of HDF5, where each file has the following keys
 $ python Att.py --task train
 ```
 ## testing
-You test the model after a certain number of training epochs.
+Test the model after a certain number of training epochs.
 
 ```
 $ python Att.py --task test --net models/model-20
