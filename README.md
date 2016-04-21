@@ -1,7 +1,7 @@
 # SA-tensorflow
 Tensorflow implementation of soft-attention mechanism for video caption generation. 
 <center>
-<img src="./README_files/system.png">
+<img src="./README_files/head.png">
 An example of soft-attention mechanism. The attention weight alpha indicates the temporal attention in one video based on each word.  
 </center>
 
