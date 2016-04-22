@@ -16,18 +16,18 @@ The original code implemented in Torch can be found [here](https://github.com/ya
 * java 1.8.0
 
 # Data
-We pack the data into the format of HDF5, where each file has the following keys:
+We pack the data into the format of HDF5, where each file is a mini-batch for training and has the following keys:
 ```
 [u'data', u'fname', u'label', u'title']
 ```
 
-```a['data']``` stores the visual features. ```shape (n_step_lstm, batch_size, hidden_dim) ```
+```batch['data']``` stores the visual features. ```shape (n_step_lstm, batch_size, hidden_dim) ```
 
-```a['fname']``` stores the filenames(no extension) of videos. ```shape (batch_size)```
+```batch['fname']``` stores the filenames(no extension) of videos. ```shape (batch_size)```
 
-```a['title']``` stores the description. If there are multiple sentences correspond to one video, the other metadata such as visual features, filenames and labels have to duplicate for one-to-one mapping. ```shape (batch_size)```
+```batch['title']``` stores the description. If there are multiple sentences correspond to one video, the other metadata such as visual features, filenames and labels have to duplicate for one-to-one mapping. ```shape (batch_size)```
 
-```a['label']``` indicates where the video ends. For instance, ```[-1., -1., -1., -1.,  0., -1., -1.]``` means that the video ends at index 4.
+```batch['label']``` indicates where the video ends. For instance, ```[-1., -1., -1., -1.,  0., -1., -1.]``` means that the video ends at index 4.
 
 ```shape (n_step_lstm, batch_size)```
 
