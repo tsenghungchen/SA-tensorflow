@@ -48,7 +48,7 @@ $ python Att.py --task test --net models/model-20
 
 [Kuo-Hao Zeng](https://github.com/jacky55062003)
 
-## Acknowledgments
+## Disclaimer
 
 We modified the code from this repository [jazzsaxmafia/video\_to\_sequence](https://github.com/jazzsaxmafia/video_to_sequence) to the temporal-attention model.
 
