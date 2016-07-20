@@ -44,9 +44,9 @@ Test the model after a certain number of training epochs.
 $ python Att.py --task test --net models/model-20
 ```
 ## Author
-[Tseng-Hung Chen](https://github.com/paul0819)
+[Tseng-Hung Chen](https://github.com/tsenghungchen)
 
-[Kuo-Hao Zeng](https://github.com/jacky55062003)
+[Kuo-Hao Zeng](https://kuohaozeng.github.io/)
 
 ## Disclaimer
 
