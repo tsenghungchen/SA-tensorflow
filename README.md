@@ -31,6 +31,16 @@ We pack the data into the format of HDF5, where each file is a mini-batch for tr
 
 ```shape (n_step_lstm, batch_size)```
 
+## Generate data list 
+
+```
+video_data_path_train = '$ROOTPATH/examples/train_vn.txt'
+```
+
+You can change the path variable to the absolute path of your data. Then simply run ```python getlist.py``` to generate the list.
+
+P.S. The filenames of HDF5 data starts with ```train```, ```val```, ```test```. 
+
 # Usage
 
 ## training
@@ -43,16 +53,16 @@ Test the model after a certain number of training epochs.
 ```
 $ python Att.py --task test --net models/model-20
 ```
-## Author
+# Author
 [Tseng-Hung Chen](https://github.com/tsenghungchen)
 
 [Kuo-Hao Zeng](https://kuohaozeng.github.io/)
 
-## Disclaimer
+# Disclaimer
 
 We modified the code from this repository [jazzsaxmafia/video\_to\_sequence](https://github.com/jazzsaxmafia/video_to_sequence) to the temporal-attention model.
 
-## Reference
+# Reference
 
 [1] L. Yao, A. Torabi, K. Cho, N. Ballas, C. Pal, H. Larochelle, and A. Courville. 
 Describing videos by exploiting temporal structure. arXiv:1502.08029v4, 2015.
