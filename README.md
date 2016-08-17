@@ -40,7 +40,7 @@ We generate the HDF5 data by following the steps below. The codes are a little m
 Once you change the ```video_path``` and ```output_path```, you can generate labels by running the script:
  
 ```
-python generate_nolabel.py
+python hdf5_generator/generate_nolabel.py
 ```
 
 I set the length of each clip to 10 frames and the maximum length of frames to 450. You can change the parameters in function `get_frame_list(frame_num)`.
@@ -60,7 +60,7 @@ You can change the directory name whatever you want.
 ```h5py_path```: The path that you store the concatenation of different features, the code will automatically put the features in the subdirectory `cont`
 
 ```
-python input_generator.py
+python hdf5_generator/input_generator.py
 ```
 
 Note that in function `get_feats_depend_on_label()`, you can choose whether to take the mean feature or random sample feature of frames in one clip. The random sample script is commented out since the performance is worse.
@@ -70,7 +70,7 @@ Note that in function `get_feats_depend_on_label()`, you can choose whether to t
 I set the maxmimum number of words in a caption to 35. `feature folder` is where our final output features store.
 
 ```
-python trans_video_youtube.py
+python hdf5_generator/trans_video_youtube.py
 ```
 (The codes here are written by Kuo-Hao)
 
