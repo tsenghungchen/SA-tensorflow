@@ -251,6 +251,7 @@ def get_video_data_jukin(video_data_path_train, video_data_path_val, video_data_
 
     fname = np.array(fname)
     title = np.array(title)
+    train_title = np.array(train_title)
     video_data = pd.DataFrame({'Description':train_title})
 
     return video_data, video_list_train, video_list_val, video_list_test
