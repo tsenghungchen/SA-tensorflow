@@ -31,6 +31,49 @@ We pack the data into the format of HDF5, where each file is a mini-batch for tr
 
 ```shape (n_step_lstm, batch_size)```
 
+## Generate HDF5 data 
+
+We generate the HDF5 data by following the steps below. The codes are a little messy. If you have any questions, feel free to ask. 
+
+### 1. Generate Label
+
+Once you change the ```video_path``` and ```output_path```, you can generate labels by running the script:
+ 
+```
+python generate_nolabel.py
+```
+
+I set the length of each clip to 10 frames and the maximum length of frames to 450. You can change the parameters in function `get_frame_list(frame_num)`.
+
+### 2. Pack features together (no caption information)
+
+#### Inputs:
+
+```label_path```: The path for the labels generated earlier.
+
+```feature_path```: The path that stores features such as VGG and C3D. 
+You can change the directory name whatever you want.
+
+
+#### Ouputs:
+
+```h5py_path```: The path that you store the concatenation of different features, the code will automatically put the features in the subdirectory `cont`
+
+```
+python input_generator.py
+```
+
+Note that in function `get_feats_depend_on_label()`, you can choose whether to take the mean feature or random sample feature of frames in one clip. The random sample script is commented out since the performance is worse.
+
+### 3. Add captions into HDF5 data
+
+I set the maxmimum number of words in a caption to 35. `feature folder` is where our final output features store.
+
+```
+python trans_video_youtube.py
+```
+(The codes here are written by Kuo-Hao)
+
 ## Generate data list 
 
 ```
@@ -54,7 +97,7 @@ Test the model after a certain number of training epochs.
 $ python Att.py --task test --net models/model-20
 ```
 # Author
-[Tseng-Hung Chen](https://github.com/tsenghungchen)
+[Tseng-Hung Chen](https://tsenghungchen.github.io/)
 
 [Kuo-Hao Zeng](https://kuohaozeng.github.io/)
 

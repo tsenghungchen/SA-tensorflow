@@ -219,6 +219,7 @@ def get_video_data_HL(video_data_path, video_feat_path):
 
 def get_video_data_jukin(video_data_path_train, video_data_path_val, video_data_path_test):
     video_list_train = get_video_data_HL(video_data_path_train, video_feat_path)
+    train_title = []
     title = []
     fname = []
     for ele in video_list_train:
@@ -228,6 +229,8 @@ def get_video_data_jukin(video_data_path_train, video_data_path_val, video_data_
         for i in xrange(len(batch_fname)):
                 fname.append(batch_fname[i])
                 title.append(batch_title[i])
+                train_title.append(batch_title[i])
+
     video_list_val = get_video_data_HL(video_data_path_val, video_feat_path)
     for ele in video_list_val:
         batch_data = h5py.File(ele)
@@ -236,6 +239,7 @@ def get_video_data_jukin(video_data_path_train, video_data_path_val, video_data_
         for i in xrange(len(batch_fname)):
                 fname.append(batch_fname[i])
                 title.append(batch_title[i])
+
     video_list_test = get_video_data_HL(video_data_path_test, video_feat_path)
     for ele in video_list_test:
         batch_data = h5py.File(ele)
@@ -244,9 +248,10 @@ def get_video_data_jukin(video_data_path_train, video_data_path_val, video_data_
         for i in xrange(len(batch_fname)):
                 fname.append(batch_fname[i])
                 title.append(batch_title[i])
+
     fname = np.array(fname)
     title = np.array(title)
-    video_data = pd.DataFrame({'Description':title})
+    video_data = pd.DataFrame({'Description':train_title})
 
     return video_data, video_list_train, video_list_val, video_list_test
 
