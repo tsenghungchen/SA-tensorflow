@@ -160,16 +160,15 @@ def get_feats_depend_on_label(label, per_f, v, idx):
         low = int(math.ceil(label[0][l_index][0] / per_f))
         up = min(len(v), int(math.ceil(label[0][l_index][1] / per_f)))
         up_ = up
-## take the mean feature of frames in one clip
-        X.append(np.mean(v[low:up,:],axis=0))
         #pdb.set_trace()
-## random sample feature of frames in one clip
-    '''
         if  low >= len(v) or low == up:
             X.append(X[-1])
         else:
-            X.append(v[np.random.randint(low,up),:])
-    '''
+            ## take the mean feature of frames in one clip
+            X.append(np.mean(v[low:up,:],axis=0))
+            ## random sample feature of frames in one clip
+#            X.append(v[np.random.randint(low,up),:])
+    
         y.append(label[1][l_index])
         q.append(idx)
     return X, y, q
