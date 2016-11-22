@@ -16,6 +16,9 @@ The original code implemented in Torch can be found [here](https://github.com/ya
 * java 1.8.0
 
 # Data
+
+The MSVD [2] dataset can be download from [here](http://www.cs.utexas.edu/users/ml/clamp/videoDescription/).
+
 We pack the data into the format of HDF5, where each file is a mini-batch for training and has the following keys:
 ```
 [u'data', u'fname', u'label', u'title']
